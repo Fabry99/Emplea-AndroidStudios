@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tipo_Usuario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:background="@drawable/fondotipo">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/tipo_user_empresa"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:onClick="registroEmpresa"
+                android:src="@drawable/empresa"
+                tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/tipo_user_personal"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="21dp"
+                android:layout_toRightOf="@+id/tipo_user_empresa"
+                android:onClick="registropersonal"
+                android:src="@drawable/personal"
+                tools:ignore="ContentDescription,ImageContrastCheck,RtlHardcoded,SpeakableTextPresentCheck" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tipo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empresa1"
+                android:textColor="@color/azul"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/tipo2"
+                android:layout_marginLeft="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal1"
+                android:textColor="@color/azul"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_toRightOf="@+id/tipo1"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

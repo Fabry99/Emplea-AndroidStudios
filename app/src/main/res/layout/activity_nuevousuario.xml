@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".nuevousuario">
+
+
+    <TextView
+        android:id="@+id/txt_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#298DD0"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039"
+        android:visibility="gone"
+        />
+
+
+    <View
+        android:id="@+id/divi"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/lineadivisora"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.097"
+
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:background="@color/error"
+        app:layout_constraintTop_toBottomOf="@+id/divi"
+        android:visibility="gone"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="85dp"
+        app:cardElevation="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/error_message">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imagenlogoreg"
+            android:src="@drawable/letralogo2"></ImageView>
+    </androidx.cardview.widget.CardView>
+    <RadioGroup
+        android:id="@+id/user_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rbUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_weight="1"
+            android:text="@string/usuario"
+            android:checked="true"
+            android:tag="3"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+        <RadioButton
+            android:id="@+id/rbEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rdbempresa"
+            android:tag="2"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+    </RadioGroup>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nom"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_type"> <!-- Establece el estilo del fondo en "outline" -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textColor="@color/black"
+            android:textColorHint="#7E7E7E"
+            android:textSize="16sp"
+            app:helperText="Ingrese sus nombres"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/apell"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/apellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textColor="@color/black"
+            android:textColorHint="#7E7E7E"
+            android:textSize="16sp"
+            app:helperText="Ingrese sus Apellidos"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contendui"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apell">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txIidentificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textColor="@color/black"
+            android:textColorHint="#7E7E7E"
+            android:textSize="16sp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/corr"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contendui">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textColor="@color/black"
+            android:textColorHint="#7E7E7E"
+            android:textSize="16sp"
+            app:helperText="Ingrese un Correo"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contra"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:passwordToggleEnabled="true"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/corr">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="#7E7E7E"
+            android:textSize="16sp"
+            app:helperText="Ingrese una Contraseña"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/bntenviar"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:background="@drawable/fondoboton"
+        android:text="@string/registrar"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contra"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957"
+        tools:ignore="TextContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

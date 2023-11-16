@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    app:cardUseCompatPadding="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        tools:ignore="ExtraText">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:padding="6dp">
+            <TextView
+                android:id="@+id/Titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/txt_titulo"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/azul"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+        </RelativeLayout>
+            <TextView
+                android:id="@+id/empresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/empresa"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+        <RelativeLayout
+            android:id="@+id/ubi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ubiicono"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/localizacion"
+                android:contentDescription="@string/ubi" />
+            <TextView
+                android:id="@+id/dire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/ubicacion"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/ubiicono"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:ignore="RtlHardcoded" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/cale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/caleico"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/calendario"
+                android:contentDescription="@string/todo" />
+            <TextView
+                android:id="@+id/publi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/fecha"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/caleico"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:ignore="RtlHardcoded" />
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnVER"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="@string/btn_Aplicar"
+                android:background="@drawable/fondoboton"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginBottom="5dp"
+
+                />
+            <TextView
+                android:id="@+id/id_oferta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text=""
+                android:layout_marginLeft="10dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/azul"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/icono"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:paddingLeft="14dp"-->
+<!--                android:paddingRight="14dp"-->
+<!--                android:layout_alignParentLeft="true"-->
+<!--                android:src="@drawable/ing"-->
+                />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linear"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_marginStart="4dp"-->
+<!--                android:layout_marginTop="2dp"-->
+<!--                android:layout_toEndOf="@id/icono"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginLeft="4dp"-->
+<!--                android:layout_toRightOf="@id/icono"-->
+                >
+
+<!--                <TextView-->
+<!--                    android:id="@+id/informacion"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Informacion"-->
+<!--                    android:textSize="14sp"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
+
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

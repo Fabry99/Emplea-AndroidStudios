@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerOfertas"
+    android:id="@+id/verOferta">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/activity_nav_header_menu1"
+        app:menu="@menu/activity_menu_drawer"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"
+        />
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:id="@+id/contenido_categorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints,UselessParent">
+
+            <ImageButton
+                android:id="@+id/icomenu"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:importantForAccessibility="no"
+                android:onClick="menu"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                app:srcCompat="@drawable/menu"
+                tools:ignore="ImageContrastCheck,MissingConstraints,RtlHardcoded,TouchTargetSizeCheck" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/icomenu"
+                android:layout_toRightOf="@id/icomenu"
+                android:orientation="vertical"
+                tools:ignore="RtlHardcoded">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/alfa_slab_one"
+                        android:text="@string/nueva_oferta1"
+                        android:textAlignment="textStart"
+                        android:textColor="#298DD0"
+                        android:textSize="20sp"
+                        tools:ignore="MissingConstraints" />
+                    <TextView
+                        android:id="@+id/id_oferta"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:textAlignment="textEnd"
+                        android:text=""
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/azul"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded"
+                        android:visibility="gone"/>
+
+                    <ImageButton
+                        android:id="@+id/btnAtras"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="15dp"
+                        android:src="@drawable/atras"
+                        android:layout_marginLeft="210dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+
+                        android:importantForAccessibility="no"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/linea1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/linea"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/imgnuevaoferta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encabezado"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/nuevaoferta"
+            android:importantForAccessibility="no" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgnuevaoferta"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/txtTitulo"
+            android:textSize="34sp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/azul">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:text=""
+            android:id="@+id/txtDescripcion"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/black">
+
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:id="@+id/txtCat"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtEmpresa"
+                android:textSize="20sp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/black">
+
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAplicar"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/fondoboton"
+                android:text="@string/seleccionar"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contra"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.957"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck,TextSizeCheck" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nombres"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:hint="Curriculum"
+                android:textColor="@color/black"
+                android:textColorHint="#7E7E7E"
+                android:textSize="16sp"
+                app:helperText="Ingrese sus nombres"
+                tools:ignore="HardcodedText,SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnenviar"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/fondoboton"
+        android:text="@string/enviar"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957"
+        tools:ignore="TextContrastCheck" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

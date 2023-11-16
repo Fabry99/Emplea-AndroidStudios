@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".contruccion_categoria"
+    android:id="@+id/cat_construccion">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/activity_nav_header_menu1"
+        app:menu="@menu/activity_menu_drawer"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"
+        />
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:id="@+id/contenido_categorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints,UselessParent">
+
+            <ImageButton
+                android:id="@+id/icomenu"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:importantForAccessibility="no"
+                android:onClick="menu"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                app:srcCompat="@drawable/menu"
+                tools:ignore="ImageContrastCheck,MissingConstraints,RtlHardcoded,TouchTargetSizeCheck" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/icomenu"
+                android:layout_toRightOf="@id/icomenu"
+                android:orientation="vertical"
+                tools:ignore="RtlHardcoded">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/alfa_slab_one"
+                        android:text="@string/construcci_n"
+
+                        android:textColor="#298DD0"
+                        android:textSize="16sp"
+                        tools:ignore="MissingConstraints,TextContrastCheck" />
+
+                    <ImageButton
+                        android:id="@+id/btnAtras"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="15dp"
+                        android:src="@drawable/atras"
+                        android:layout_marginLeft="210dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+
+                        tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/linea1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/linea"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listRecyclerViewConstruccion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/encabezado"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

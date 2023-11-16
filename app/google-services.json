@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005863938435",
+    "project_id": "emplea-8cff0",
+    "storage_bucket": "emplea-8cff0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005863938435:android:1a86ee03fc4fa1eab0aeb6",
+        "android_client_info": {
+          "package_name": "sv.edu.catolica.emplea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHA9mKv_Iiz9v4Tcl_WEbPL_a-wpkoEhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
