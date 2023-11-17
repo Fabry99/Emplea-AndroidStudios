@@ -18,6 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".imagenengrande"
+            android:exported="false" />
+        <activity
+            android:name=".menucambiarfoto"
+            android:exported="false" />
+        <activity
             android:name=".PerfilUsuario"
             android:exported="false" />
         <activity

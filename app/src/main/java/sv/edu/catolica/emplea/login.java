@@ -51,7 +51,7 @@ public class login extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://192.168.162.1/emplea/validar_login.php");
+                validarUsuario("http://192.168.1.6/emplea/validar_login.php");
             }
         });
     }
@@ -87,6 +87,7 @@ public class login extends AppCompatActivity {
                             // Por ejemplo, puedes iniciar una nueva actividad
                             Intent intent = new Intent(login.this, inicioofertas.class);
                             intent.putExtra("nombreUsuario", jsonResponse.getString("nombreUsuario"));
+                            intent.putExtra("id_usuario", jsonResponse.getString("id_usuario"));
                             startActivity(intent);
                             finish();
                         }else if(idTipo==2) {

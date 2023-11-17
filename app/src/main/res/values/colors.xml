@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="azul">#298DD0</color>
     <color name="error">#FF4D4D</color>
+    <color name="colorPresionado">#FFD700</color>
+    <color name="gris">#575757</color>
 </resources>

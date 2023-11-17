@@ -30,6 +30,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class inicioofertas extends AppCompatActivity {
     List<listElement> elements;
@@ -38,7 +39,7 @@ public class inicioofertas extends AppCompatActivity {
     ImageButton atras;
     GestureDetectorCompat Gesto;
     adaptador adaptador;
-    String nombreUsuario = "nombreUsuario";
+    String nombreUsuario = "nombreUsuario"; String mostrarID = "id_usuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class inicioofertas extends AppCompatActivity {
         TextView textNombre = headerView.findViewById(R.id.txtNombreUsu);
         nombreUsuario = getIntent().getStringExtra("nombreUsuario");
         textNombre.setText(nombreUsuario);
+         mostrarID= getIntent().getStringExtra("id_usuario");
         Gesto = new GestureDetectorCompat(this, new GestureListener());
         iconomenu = findViewById(R.id.icomenu);
         atras = findViewById(R.id.btnAtras);
@@ -84,6 +86,10 @@ public class inicioofertas extends AppCompatActivity {
                     Intent intent=new Intent(inicioofertas.this, Postulaciones.class);
                     startActivity(intent);
                     
+                } else if (item.getItemId()==R.id.miperfil) {
+                    Intent intent=new Intent(inicioofertas.this,PerfilUsuario.class);
+                    intent.putExtra("id_usuario", mostrarID);
+                    startActivity(intent);
                 } else if (item.getItemId() == R.id.nav_salir) {
                     Intent intent = new Intent(inicioofertas.this, login.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -130,7 +136,7 @@ public class inicioofertas extends AppCompatActivity {
     }
 
     private void obtenerDatosOfertas() {
-        String url = "http://192.168.162.1/emplea/ofertas_empleos.php";
+        String url = "http://192.168.1.6/emplea/ofertas_empleos.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

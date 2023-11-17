@@ -117,7 +117,7 @@ public class Informatica_categoria extends AppCompatActivity {
     public static class MyVolleyRequest {
 
         public static void obtenerDatosDesdeServidor(Context context, final Informatica_categoria.MyVolleyRequest.VolleyCallback callback) {
-            String url = "http://192.168.162.1/emplea/caT_informatica.php";
+            String url = "http://192.168.1.6/emplea/caT_informatica.php";
 
             JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONArray>() {

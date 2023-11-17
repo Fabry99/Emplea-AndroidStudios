@@ -37,7 +37,7 @@ import java.io.InputStream;
 public class VerOfertas extends AppCompatActivity {
     private static final int SELECCIONAR_DOCUMENTO = 1;
     private RequestQueue requestQueue;
-    private String url = "http://192.168.162.1/emplea/enviarcurriculum.php";
+    private String url = "http://192.168.1.6/emplea/enviarcurriculum.php";
     private Button btnsubir, btnEnviar;
     private TextView textVerRuta, textTitulo, textDescripcion, textempresa,textcat,id_oferta;
     private Uri uriDocumentoSeleccionado;
