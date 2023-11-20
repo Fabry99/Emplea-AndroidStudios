@@ -3,7 +3,7 @@ package sv.edu.catolica.emplea;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
-
+import sv.edu.catolica.emplea.singleton;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,6 +103,9 @@ public class VerOfertas extends AppCompatActivity {
                 if (item.getItemId()==R.id.nav_home){
                     Intent intent=new Intent(VerOfertas.this, inicioofertas.class);
                     startActivity(intent);
+                } else if (item.getItemId()==R.id.miperfil) {
+                    Intent intent=new Intent(VerOfertas.this, PerfilUsuario.class);
+                    startActivity(intent);
                 }
                 return true;
             }
@@ -162,6 +167,11 @@ public class VerOfertas extends AppCompatActivity {
                 String nombreDocumento = obtenerNombreDocumento(uriDocumentoSeleccionado);
                 textVerRuta.setText(nombreDocumento);
             }
+        }
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            // El código 1 coincide con el requestCode que usaste al iniciar InicioOfertasActivity
+            // Vuelve a cargar la foto aquí
+            loadUserPhoto();
         }
     }
 
@@ -281,4 +291,35 @@ public class VerOfertas extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadUserPhoto();  // Llama al método para cargar la foto al volver a la actividad
+    }
+    private void loadUserPhoto() {
+        navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+
+        singleton nombre = singleton.getInstance();
+        TextView txtNombre = headerView.findViewById(R.id.txtNombreUsu);
+        String nombreusuario = singleton.getInstance().getNombreusuario();
+        if (nombreusuario != null && !nombreusuario.isEmpty()) {
+            txtNombre.setText(nombreusuario);
+        }
+
+        singleton usersingleton = singleton.getInstance();
+        ImageView foto = headerView.findViewById(R.id.imageView3);
+        String fotoUsuario = singleton.getInstance().getFotousuario();
+
+        if (fotoUsuario != null && !fotoUsuario.isEmpty()) {
+            Picasso.get().load(fotoUsuario).into(foto);
+            foto.setVisibility(View.VISIBLE);
+            setResult(RESULT_OK);  // Notifica solo cuando la foto del usuario cambie
+        } else {
+            foto.setVisibility(View.GONE);
+        }
+    }
+
+
 }

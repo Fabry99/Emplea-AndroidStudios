@@ -14,48 +14,58 @@ android:paddingBottom="@dimen/activity_vertical_margin"
 android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 
-<!--<ImageButton
-    android:id="@+id/btnAtras"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="fff"
-    android:src="@drawable/atras"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.007" />-->
+    <!--<ImageButton
+        android:id="@+id/btnAtras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="fff"
+        android:src="@drawable/atras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007" />-->
 
-<ImageView
-    android:id="@+id/imageView2"
-    android:layout_width="110dp"
-    android:layout_height="110dp"
-    android:visibility="visible"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.216"
-    app:srcCompat="@drawable/logologin"
-    tools:ignore="ContentDescription,MissingConstraints" />
 
-<ImageView
-    android:id="@+id/imageView3"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:visibility="visible"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.285"
-    app:srcCompat="@drawable/letralogo2"
-    tools:ignore="MissingConstraints"
-    android:contentDescription="@string/todo5" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
 
-<TextView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/myCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:elevation="50dp"
+            app:cardCornerRadius="60dp">
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:contentDescription="@string/todo5"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.16"
+                app:srcCompat="@drawable/letralogo2"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+
+
+
+    <TextView
     android:id="@+id/txtNombreUsu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

@@ -1,7 +1,7 @@
 package sv.edu.catolica.emplea;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import sv.edu.catolica.emplea.singleton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -79,6 +79,14 @@ public class login extends AppCompatActivity {
 
                     if (success) {
                         int idTipo = jsonResponse.getInt("id_tipo");
+                        singleton userDataSingleton = singleton.getInstance();
+                        userDataSingleton.setFotousuario(jsonResponse.getString("foto_usuario"));
+                        userDataSingleton.setNombreusuario(jsonResponse.getString("nombreUsuario"));
+                        userDataSingleton.setIdUsuario(jsonResponse.getString("id_usuario"));
+                        Log.d("SINGLETON", "Foto del usuario almacenada en Singleton: " + userDataSingleton.getFotousuario());
+                        Log.d("SINGLETON", "Nombre del usuario almacenada en Singleton: " + userDataSingleton.getNombreusuario());
+                        Log.d("SINGLETON", "Id del usuario almacenada en Singleton: " + userDataSingleton.getIdUsuario());
+
 
                         if (idTipo == 3) {
                             Log.d("LOGIN", "Login exitoso con id_tipo: " + idTipo);
@@ -88,6 +96,7 @@ public class login extends AppCompatActivity {
                             Intent intent = new Intent(login.this, inicioofertas.class);
                             intent.putExtra("nombreUsuario", jsonResponse.getString("nombreUsuario"));
                             intent.putExtra("id_usuario", jsonResponse.getString("id_usuario"));
+                            intent.putExtra("foto_usuario", jsonResponse.getString("foto_usuario"));
                             startActivity(intent);
                             finish();
                         }else if(idTipo==2) {

@@ -4,19 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilUsuario">
+    tools:context=".PerfilUsuario"
+    android:id="@+id/perfilusu">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/activity_nav_header_menu1"
+        app:menu="@menu/activity_menu_drawer"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"
+        />
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:id="@+id/contenido_categorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints,UselessParent">
+
+            <ImageButton
+                android:id="@+id/icomenu"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:importantForAccessibility="no"
+                android:onClick="menu"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                app:srcCompat="@drawable/menu"
+                tools:ignore="ImageContrastCheck,MissingConstraints,RtlHardcoded,TouchTargetSizeCheck" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/icomenu"
+                android:layout_toRightOf="@id/icomenu"
+                android:orientation="vertical"
+                tools:ignore="RtlHardcoded">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/alfa_slab_one"
+                        android:text="Perfil"                        android:textColor="#298DD0"
+                        android:textSize="16sp"
+                        tools:ignore="MissingConstraints,TextContrastCheck" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/muestraid"
+                        android:textSize="20sp">
+
+                    </TextView>
+
+                    <ImageButton
+                        android:id="@+id/btnAtras"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/atras"
+                        android:layout_marginLeft="230dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+
+                        android:importantForAccessibility="no"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/linea1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/linea"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="216dp"
         android:background="@drawable/fondologin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/encabezado"
+        >
 
         <RelativeLayout
             android:layout_width="218dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:backgroundTint="@color/azul">
+            android:backgroundTint="@color/azul"
+            >
 
 
             <ImageView
@@ -30,21 +138,28 @@
                 tools:ignore="SpeakableTextPresentCheck"
                 android:elevation="50dp"/>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPerfil"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:elevation="50dp"
+                app:cardCornerRadius="70dp">
 
-            <ImageView
-                android:id="@+id/perfil"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/botonperfil"
-                android:clickable="true"
-                android:src="@drawable/persona"
-                tools:ignore="SpeakableTextPresentCheck"></ImageView>
+                <ImageView
+                    android:id="@+id/perfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/botonperfil"                android:clickable="true"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:elevation="50dp"/>
+            </androidx.cardview.widget.CardView>
+
+
+
 
         </RelativeLayout>
+
 
 
     </LinearLayout>

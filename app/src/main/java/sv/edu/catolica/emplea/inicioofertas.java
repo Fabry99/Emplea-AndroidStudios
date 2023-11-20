@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import sv.edu.catolica.emplea.singleton;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,10 +21,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 import android.view.GestureDetector;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -40,6 +42,8 @@ public class inicioofertas extends AppCompatActivity {
     GestureDetectorCompat Gesto;
     adaptador adaptador;
     String nombreUsuario = "nombreUsuario"; String mostrarID = "id_usuario";
+    String foto_usuario = "foto_usuario";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +53,23 @@ public class inicioofertas extends AppCompatActivity {
         obtenerDatosOfertas();
         navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        TextView textNombre = headerView.findViewById(R.id.txtNombreUsu);
-        nombreUsuario = getIntent().getStringExtra("nombreUsuario");
-        textNombre.setText(nombreUsuario);
-         mostrarID= getIntent().getStringExtra("id_usuario");
+        singleton usersingleton = singleton.getInstance();
+        ImageView foto = headerView.findViewById(R.id.imageView3);
+        String fotoUsuario = singleton.getInstance().getFotousuario();
+        String IdUsuario = singleton.getInstance().getIdUsuario();
+        loadUserPhoto();
+
+        if (fotoUsuario != null && !fotoUsuario.isEmpty()) {
+            Picasso.get().load(fotoUsuario).into(foto);
+        } else {
+            // Si no hay foto del usuario, puedes ocultar o ajustar la visibilidad del ImageView o TextView
+            foto.setVisibility(View.GONE);
+        }
+
+
+
+        mostrarID= getIntent().getStringExtra("id_usuario");
+         foto_usuario=getIntent().getStringExtra("foto_usuario");
         Gesto = new GestureDetectorCompat(this, new GestureListener());
         iconomenu = findViewById(R.id.icomenu);
         atras = findViewById(R.id.btnAtras);
@@ -89,7 +106,8 @@ public class inicioofertas extends AppCompatActivity {
                 } else if (item.getItemId()==R.id.miperfil) {
                     Intent intent=new Intent(inicioofertas.this,PerfilUsuario.class);
                     intent.putExtra("id_usuario", mostrarID);
-                    startActivity(intent);
+                    intent.putExtra("foto_usuario",foto_usuario);
+                    startActivityForResult(intent,1);
                 } else if (item.getItemId() == R.id.nav_salir) {
                     Intent intent = new Intent(inicioofertas.this, login.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -184,6 +202,7 @@ public class inicioofertas extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+
     @Override
     public void onBackPressed() {
         if (navigationView.getVisibility() == View.VISIBLE) {
@@ -215,4 +234,44 @@ public class inicioofertas extends AppCompatActivity {
         startActivity(intent);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadUserPhoto();  // Llama al método para cargar la foto al volver a la actividad
+    }
+    private void loadUserPhoto() {
+        navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+
+        singleton nombre = singleton.getInstance();
+        TextView txtNombre = headerView.findViewById(R.id.txtNombreUsu);
+        String nombreusuario = singleton.getInstance().getNombreusuario();
+        if (nombreusuario != null && !nombreusuario.isEmpty()) {
+            txtNombre.setText(nombreusuario);
+        }
+
+        singleton usersingleton = singleton.getInstance();
+        ImageView foto = headerView.findViewById(R.id.imageView3);
+        String fotoUsuario = singleton.getInstance().getFotousuario();
+
+        if (fotoUsuario != null && !fotoUsuario.isEmpty()) {
+            Picasso.get().load(fotoUsuario).into(foto);
+            foto.setVisibility(View.VISIBLE);
+            setResult(RESULT_OK);  // Notifica solo cuando la foto del usuario cambie
+        } else {
+            foto.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            // El código 1 coincide con el requestCode que usaste al iniciar InicioOfertasActivity
+            // Vuelve a cargar la foto aquí
+            loadUserPhoto();
+        }
+    }
+
 }
